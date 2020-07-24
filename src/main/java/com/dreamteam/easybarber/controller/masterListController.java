@@ -43,6 +43,7 @@ public class masterListController {
         List<User> masterList;
         if(!model.containsAttribute("masterList")) {
             masterList = (List<User>) userRepo.findAllByRolesContaining(Roles.MASTER);
+            masterList.removeIf(i -> i.getActivationCode() != null);
         }
         else
         {
@@ -68,6 +69,7 @@ public class masterListController {
         model.addAttribute("user", user);
         return "master-list";
     }
+
     @GetMapping("/MasterFrUsr/{masterId}")
     public String masterProfFrmUser( @AuthenticationPrincipal User user
                                    , @PathVariable Long masterId
@@ -120,6 +122,7 @@ public class masterListController {
             }
             Collection<User> users1 = userRepo.findAllByUsernameAndCityAndRolesContaining(username, city, Roles.MASTER);
             users1.retainAll(users);
+            users1.removeIf(i -> i.getActivationCode() != null);
             model.addAttribute("masterList", users1);
         }
         else if(!username.equals("") && !city.equals("-1"))
