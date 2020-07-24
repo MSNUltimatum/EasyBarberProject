@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>User Editor</title>
+</head>
+<body>
+
+<!-- CLASSIC FOR TADJIK -->
+<form th:action="@{/receptiontime}" method="post">
+    <div th:each="wd : ${weekdays}">
+        <label><input type="checkbox" th:name="${wd}" th:checked ="false" th:text="${wd}"> </label>
+    </div>
+    <div>
+        <label><input type="time" name="time" text="Время записи"></label>
+    </div>
+    <div>
+        <input type="submit" value="Добавить" />
+    </div>
+</form>
+
+<!-- ADVANCED FOR ARABS -->
+<form th:action="@{/receptiontime_advanced}" method="post">
+    <div th:each="wd : ${weekdays}">
+        <label><input type="checkbox" th:name="${wd}" th:checked ="false" th:text="${wd}"> </label>
+    </div>
+
+    <div>
+        <label><input type="time" name="beginTime" text="Начало времён записей (заменить на адекватный текст)"></label>
+    </div>
+
+    <div>
+        <label><input type="time" name="endTime" text="Уход с работы или обеденный перерыв (заменить на адекватный текст)"></label>
+    </div>
+
+    <div th:each="int : ${intervals}">
+        <label><input type="radio" th:value="${int}" name="span" th:text="${int}"></label>
+    </div>
+
+    <div>
+        <input type="submit" text="Добавить" />
+    </div>
+
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th> Дни недели </th>
+            <th> Время </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="time : ${receptionTimes}">
+            <div> <input type="text" th:value="${time.weekdaystr}" readonly="readonly" /> </div>
+            <div> <input type="time" th:value="${time.time}" readonly="readonly" /> </div>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

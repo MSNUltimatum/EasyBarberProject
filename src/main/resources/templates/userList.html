@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <table>
+        <thead>
+        <tr>
+            <th> Name </th>
+            <th> Phone </th>
+            <th> Roles </th>
+            <th><th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td><span th:text="${user.getUsername()}"> Name </span></td>
+            <td><span th:text="${user.getPhonenumber()}"> Phone </span></td>
+            <td><span th:text="${user.getRoles()}"> Roles</span></td>
+            <td><a th:href="@{'/user/' + ${user.getId()} + '/timetable/' + ${date}}">edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <link
+          href="https://fonts.googleapis.com/css?family=Roboto:400,900,900italic,700italic,700,500italic,400italic,500,300italic,300"
+          rel="stylesheet"
+          type="text/css"
+  />
+  <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"
+  />
+  <title>Easy Barber</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  />
+  <link
+          rel="icon"
+          type="image/x-icon"
+          href="../static/image/small-logo.png"
+          th:href="@{/image/small-logo.ico}"
+  />
+  <link
+          rel="stylesheet"
+          href="../static/styles/headerStyle.css"
+          th:href="@{/styles/headerStyle.css}"
+  />
+  <link
+          rel="stylesheet"
+          href="../static/styles/masterProfilePageStyle.css"
+          th:href="@{/styles/masterProfilePageStyle.css}"
+  />
+  <link
+          rel="stylesheet"
+          href="../static/styles/loginPageStyle.css"
+          th:href="@{/styles/loginPageStyle.css}"
+  />
+  <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+  />
+  <link
+          rel="stylesheet"
+          href="https://bootstraptema.ru/plugins/font-awesome/4-4-0/font-awesome.min.css"
+  />
+  <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+  <script
+          src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"
+  ></script>
+  <script
+          src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"
+  ></script>
+    <link rel="stylesheet" href="/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/2.8.2/css/lightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+    h2,
+    h5 {
+      font-family: "Prata", serif;
+      color: #470359;
+    }
+    h2 {
+      font-size: 35px;
+    }
+    h5 {
+      font-size: 25px;
+    }
+    body {
+      background-image: none;
+    }
+    .form {
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <div id="header">
+      <div id="main-header" class="object">
+        <div class="container-positionForHeader">
+          <div class="containerForHeader">
+            <div class="row">
+              <div
+                      class="col-xl-1 col-lg-1 col-md-1 col-sm-1 hidden-xs save the logo"
+              ></div>
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4 hidden-xs">
+                <div class="logo">
+                  <img
+                          src="../static/image/logo.png"
+                          th:src="@{/image/logo.png}"
+                          alt="Здесь будет логотип"
+                          height="38"
+                          width="90"
+                  />
+                </div>
+              </div>
+              <div class="hidden-xl hidden-lg hidden-md hidden-sm col-xs-2">
+                <div class="logo">
+                  <img
+                          src="../static/image/logo1.png"
+                          th:src="@{/image/logo1.png}"
+                  />
+                </div>
+              </div>
+              <div
+                      class="col-xl-5 col-lg-5 col-md-4 col-sm-3 col-xs-1 empty block"
+              ></div>
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                <div id="main_tip_search">
+                  <form>
+                    <input
+                            type="text"
+                            name="search"
+                            id="tip_search_input"
+                            list="search"
+                            autocomplete="off"
+                            required
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/}">Главная</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/masterList}">Мастера</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">О нас</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="block1">
+  <div class="container" >
+    <div class="photo">
+      <h2>[[${master.getUsername()}]]</h2>
+      <div class="img-conteiner">
+        <div  class="image-wrap image-flex">
+          <img th:if="${master.getImgFileName() == null}"
+               th:src="@{/image/master.png}"
+               class="avatar bord"/>
+
+          <img th:unless="${master.getImgFileName() == null}"
+               th:src="@{'/img/' + ${master.getImgFileName()}}"
+               class="avatar bord"/>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <h5>Основная информация</h5>
+      <textarea
+              readonly = "readonly"
+              th:name="description"
+              th:value="${master.getDescription()}"
+              th:text="${master.getDescription()}"
+              style="font-size: 20px; color: #470359;"
+      ></textarea>
+    </div>
+    <a th:href="@{'/client-recording/' + ${master.getId()} + '/' + 'timetable/' + ${thisDate}}"> Записаться</a>
+  </div>
+</div>
+
+<div class="container portfolioForUser">
+    <h2>Портфолио</h2>
+    <div class="row" th:unless="${#lists.isEmpty(portfolioPhotos)}">
+      <div class="col-lg-3 col-md-4 col-xs-6 thumb" th:each="photo : ${portfolioPhotos}">
+        <form th:action="@{'/masterList/MasterFrUsr/' + deleteProf}" method="post">
+          <a data-fancybox="gallery" th:href="${'/img/' + photo}">
+            <img 
+              class="img-responsive" 
+              style="margin-bottom:20px;" 
+              height="300"
+              th:src="${'/img/' + photo}"
+              width="400"></a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script> //устанавливает высоту блока с фото равной ширине (чтобы был квадрат)
+$(function(){
+  $('.img-conteiner').height($('.img-conteiner').width());
+
+  $(window).resize(function(){
+    $('.img-conteiner').height($('.img-conteiner').width());
+  });
+});
+</script>
+
+<script>
+  $(document).ready(function () {
+    var readURL = function (input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $(".avatar").attr("src", e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    };
+    $(".file-upload").on("change", function () {
+      readURL(this);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Easy barber</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	/>
+	<link rel="stylesheet" href="../static/styles/open-iconic-bootstrap.min.css" th:href="@{/styles/open-iconic-bootstrap.min.css}">
+	<link rel="stylesheet" href="../static/styles/animate.css" th:href="@{/styles/animate.css}">
+	<link rel="stylesheet" href="../static/styles/owl.carousel.min.css" th:href="@{/styles/owl.carousel.min.css}">
+	<link rel="stylesheet" href="../static/styles/owl.theme.default.min.css" th:href="@{/styles/owl.theme.default.min.css}">
+	<link rel="stylesheet" href="../static/styles/magnific-popup.css" th:href="@{/styles/magnific-popup.css}">
+
+	<link rel="stylesheet" href="../static/styles/aos.css" th:href="@{/styles/aos.css}">
+
+	<link type="text/css" rel="stylesheet" href="../static/styles/ionicons.min.css" th:href="@{/styles/ionicons.min.css}">
+
+	<link rel="stylesheet" href="../static/styles/bootstrap-datepicker.css" th:href="@{/styles/bootstrap-datepicker.css}">
+	<link rel="stylesheet" href="../static/styles/jquery.timepicker.css" th:href="@{/styles/jquery.timepicker.css}">
+
+	<link rel="stylesheet" href="../static/styles/icomoon.css" th:href="@{/styles/icomoon.css}">
+	<link rel="stylesheet" type="text/css" href="../static/styles/flaticon.css" th:href="@{/styles/flaticon.css}">
+	<link rel="stylesheet" href="../static/styles/myStyle.css" th:href="@{/styles/myStyle.css}">
+	<link
+			rel="stylesheet"
+			href="../static/styles/masterProfilePageStyle.css"
+			th:href="@{/styles/masterProfilePageStyle.css}"
+	/>
+	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+	<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"
+	></script>
+	<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+	></script>
+		  <link href="../static/styles/style-94.css" rel="stylesheet" th:href="@{/styles/style-94.css}">
+		  <link href="../static/styles/style-139.css" rel="stylesheet" th:href="@{/styles/style-139.css}">
+	      <link href="../static/styles/style-139.css" rel="stylesheet" th:href="@{/styles/style-24.css}">
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="ui-55.html#" >
+		  <style>
+			  .inputfile {
+				  width: 0.1px;
+				  height: 0.1px;
+				  opacity: 0;
+				  overflow: hidden;
+				  position: absolute;
+				  z-index: -1;
+			  }
+			  .form1 {
+				  background: #ffffff;
+				  padding: 25px;
+				  margin-bottom: 50px;
+				  max-width: 280px;
+				  min-width: 240px;
+			  }
+			  .form1 button {
+				  margin:5px;
+			  }
+			  div.scrollmenu {
+				  height: 100px;
+				  overflow: auto;
+				  white-space: nowrap;
+			  }
+
+			  div.scrollmenu a {
+				  display: inline-block;
+				  color: white;
+				  text-align: center;
+				  padding: 14px;
+				  text-decoration: none;
+			  }
+
+			  ::-webkit-scrollbar {
+				  width: 12px;
+			  }
+
+			  ::-webkit-scrollbar-track {
+				  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				  border-radius: 10px;
+			  }
+
+			  ::-webkit-scrollbar-thumb {
+				  border-radius: 10px;
+				  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+			  }
+		  </style>
+	<link
+			rel="stylesheet"
+			href="../static/styles/masterScheduleStyle.css"
+			th:href="@{/styles/masterScheduleStyle.css}"
+	/>
+	  </head>
+	  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		  <div class="container">
+			  <a class="navbar-brand" href="/">Easy barber</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="oi oi-menu"></span> Menu
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="ftco-nav">
+				  <ul class="navbar-nav ml-auto">
+					  <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+					  <li class="nav-item"><a href="/masterList/page/1" class="nav-link">Masters</a></li>
+					  <li class="nav-item active" ><a href="/personalArea" class="nav-link">Personal Area</a></li>
+					  <li class="nav-item" >
+						  <label for="exit" class="nav-link">Exit</label>
+					  </li>
+					  <form th:action="@{/logout}" method="post">
+						  <input type="submit" id="exit" class="inputfile" th:value="Выйти"  />
+					  </form>
+				  </ul>
+			  </div>
+		  </div>
+	  </nav>
+	  <!-- END nav -->
+
+	  <div class="hero-wrap" th:style="'background-image: url(/image/bg_1.jpg);'" data-stellar-background-ratio="0.5">
+		  <div class="overlay"></div>
+		  <div class="container">
+			  <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+				  <div class="col-md-6 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+					  <h1 class="mb-3 mt-5 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Личный кабинет</h1>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <section class="ftco-intro">
+		  <div class="container-wrap">
+			  <div class="wrap d-md-flex align-items-end">
+				  <div class="info" style="; min-width: 300px; padding: 1% 1% 1% 2%; width: calc(100% - 80%);}">
+					  <div class="text">
+						  <h3><a class="navbar-brand" href="index.html">Easy barber </a></h3>
+						  <p>your style begins with us.</p>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </section>
+		<section class="ftco-section ftco-bg-dark" style="padding-top: 30px; padding-bottom: 30px">
+	  <div class="row">
+		  <div class="col pt-3 d-flex justify-content-center">
+			  <a href="/personalArea"  class="btn btn-primary py-3 px-4" style="width:250px; height:65px; font-size: 25px; padding-top: 5px;">Обо мне</a>
+		  </div>
+		  <div class="col pt-3 d-flex justify-content-center">
+			  <a th:href="'/client-recording/clientReceps'"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мои записи</a>
+		  </div>
+		  <div class="col pt-3 d-flex justify-content-center">
+			  <a th:href="'/receptiontimeE/serviceEditor'"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мои услуги</a>
+		  </div>
+		  <div class="col pt-3 d-flex justify-content-center">
+			  <a href="/portfolio"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мое портфолио</a>
+		  </div>
+		  <div class="col pt-3 d-flex justify-content-center">
+			  <a href="/receptiontimeE/myClients"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мои клиенты</a>
+		  </div>
+		  <div class="col pt-3 d-flex justify-content-center">
+			  <a th:href="@{'/receptiontimeE/timetable/' + ${choseDate}}"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мое расписание</a>
+		  </div>
+	  </div>
+	</section>
+	<section class="ftco-section" style="padding-top: 0; padding-bottom: 50px;">
+		<div class="ui-94" style="background-color: #2d2d2d;">
+			<div class="container">
+				<!-- Navigation Menu Start -->
+				<div class="navigation">
+					<div class="row d-flex justify-content-center">
+						<!-- Navigation Menu Link Lists -->
+						<div class="col-md-5 ml-auto mr-aut">
+							<div class="ftco-bg-dark" style="padding: 20px; ">
+									<h3 style="color: #ce9c6b">Запись клиента</h3>
+								  <form th:action="@{'/receptiontimeE/' + receptionRegistration}" method="post" class="contact-form">
+									<div class="form-group">
+									  <input type="date" th:name="date" th:value="${currentDate}" class="form-control" style="font-size: 16px; "/>
+									</div>
+									 <div class="form-group">
+									      <input type="time" th:name="time" th:value="${currentTime}" class="form-control" style="font-size: 16px; "/>
+									</div>
+									 <div class="form-group">
+									  <input type="text" class="form-control" th:name="userName" placeholder="Имя"  style="font-size: 16px; "/>
+									</div>
+									 <div class="form-group">
+									  <input type="text" th:name="userPhone" placeholder="Телефон" class="form-control" style="font-size: 16px; "/>
+									</div>
+									<div class="form-group">
+									  <select th:name="serviceType" class="form-control">
+										  <option style="background-color: #000; font-size: 16px;" th:value="-1" selected="selected" class="types">Выберите тип услуги</option>
+										  <th th:each="service : ${servises}">
+											  <option style="background-color: #000; font-size: 16px; " th:value="${service.getServices().getName()}" th:text="${service.getServices().getName()}"></option>
+										  </th>
+									  </select>
+									</div>
+									  <div class="form-group">
+										  <button type="submit" class="btn btn-primary">Сохранить</button>
+									  </div>
+								  </form>
+							</div>
+						</div>
+						<div class="col-md-5 ml-auto mr-auto" style="padding-top: 30px;">
+							<div class="ftco-bg-dark" style="padding: 20px; ">
+									<h3 style="color: #ce9c6b">Мое расписание</h3>
+								  <form th:action="@{'/receptiontimeE/' + receptionRegistrationArabian}" method="post" class="contact-form">
+									<div class="form-group">
+									  <input type="date" th:name="date" th:value="${currentDate}" class="form-control" style="font-size: 16px; "/>
+									</div>
+									 <div class="form-group">
+									      <input type="time" th:name="beginTime" th:value="${currentTime}" class="form-control" style="font-size: 16px; "/>
+									</div>
+									 <div class="form-group">
+									  <input type="time" th:name="endTime" th:value="${currentTime}" class="form-control" style="font-size: 16px; "/>
+									</div>
+									<select th:name="serviceType" class="form-control">
+										  <option style="background-color: #000; font-size: 16px;" th:value="-1" selected="selected" class="types">Выберите период</option>
+										  <th th:each="int : ${spans}">
+											  <option style="background-color: #000; font-size: 16px; " th:value="${int}" name="span" th:text="${int}"></option>
+										  </th>
+									</select>
+									  <div class="form-group">
+										  <button type="submit" class="btn btn-primary">Сохранить</button>
+									  </div>
+								  </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Navigation menu end -->
+		</div>
+		<!-- Navigation Menu Button -->
+		<div class="menu-btn">
+			<a href="ui-94.html#" class="btn-info" style="background-color:#ce9c6b; ">Add ↓<i class="fa fa-chevron-down"></i></a>
+		</div>
+	</section>
+	<section style="padding-top: 5px;">
+		<div class="scrollmenu" style="border: 1px solid #dcb186; width: 100%; margin-left: auto; margin-right: auto">
+			<form th:action="@{'/receptiontimeE/' + timetable}" method="post">
+					<label th:each="dat:${dates}" style="padding-right:5px; padding-left: 5px; padding-top: 10px; margin-left: auto; margin-right: auto">
+						<input style=" width: 60px; height: 60px; background-color: transparent; color: #ce9c6b; border: 1px solid rgba(0,0,0,0.49);"
+								type="submit"
+								size="4"
+								th:name="${dat}"
+								th:value="${dat.getDayOfWeek().toString().substring(0,3) + ',' + dat.getDayOfMonth()}">
+					</label>
+			</form>
+			<!-- позиционирование по 4, потом по 3, 2, 1 блока в ряду -->
+		</div>
+		<div class="ui-24">
+		</div><!-- /UI X -->
+		<div class="ui-139">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-4 col-md-5 col-sm-7 col-xs-13 col-mob" th:each="time : ${reseptionTime}">
+						<!-- Item -->
+						<div class="ui-item ftco-bg-dark">
+							<!-- Heading -->
+							<div class="ui-heading clearfix">
+								<!-- Main Heading -->
+								<h2><a>[[${time.getUsrReceptionTime().getTime()}]]</a></h2>
+								<!-- Price -->
+							</div>
+							<h4>[[${time.getUsrReceptionTime().getDate()}]]</h4>
+							<hr style="background-color: #ce9c6b"/>
+							<div class="row">
+								<form th:action="@{'/receptiontimeE/' + saveRecep}" method="post">
+								<div class="contact-form" style="width: 100%">
+									<!-- Unordered Listing -->
+									<ul>
+										<!-- Bandwidth -->
+										<input class="form-control" name="userName" placeholder="Имя" type="text" th:value="${time.getClientName()}" style="width: 100%; font-size: 17px">
+											<!-- Storage -->
+										<li><input class="form-control" name="userPhone" placeholder="Телефон" type="text" th:value="${time.getClientPhonenumber()}" style="width: 100%; font-size: 17px"></li>
+										<!-- Database -->
+										<li><input class="form-control" name="date" type="text" th:value="${time.getUsrReceptionTime().getDate()}" readonly = readonly style="width: 100%; font-size: 17px"></li>
+										<!-- Email -->
+										<li><input class="form-control" name="userTime" type="text" th:value="${time.getUsrReceptionTime().getTime()}" readonly="readonly" style="width: 100%; font-size: 17px"></li>
+										<li><select onchange="highlightOn()" name="userService" th:name="userService" class="form-control" style="width: 100%; font-size: 17px">
+											<option style="background-color: #000; font-size: 16px; " th:value="-1" selected="selected">Выберите тип услуги</option>
+											<option
+													style="background-color: #000; font-size: 16px; "
+													th:each="service : ${servises}"
+													th:value="${service.getServices().getName()}"
+													th:selected="${service.getServices().getId() == time.getServiceId()}"
+													th:text="${service.getServices().getName()}"></option>
+										</select></li>
+										<!-- Support -->
+											<button onclick="highlightOff()" class="btn btn-primary" type="submit" th:name="save" th:value="Save">
+												Сохранить
+											</button>
+											<button type="submit" class="btn btn-primary" th:name="delete" th:value="Delete">
+												Удалить
+											</button>
+									</ul>
+								</div>
+								</form>
+							</div>
+							<!-- Listing Ends -->
+							<!-- Button -->
+							<!-- Contact Us -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	  <footer class="ftco-footer ftco-section img">
+		  <div class="overlay"></div>
+		  <div class="container">
+			  <div class="row mb-5">
+				  <div class="col-md-4">
+					  <div class="ftco-footer-widget mb-4">
+						  <h2 class="ftco-heading-2">О нас</h2>
+						  <p>В случае возникновения конфликтов или неполадок, проблем, при работе с сайтом, пожалуйста обратитесь в нашу поддержку по почте.
+							  Наши менеджеры помогут урегулировать конфликт и ответят на все вопросы.</p>
+					  </div>
+				  </div>
+				  <div class="col-md-4">
+					  <div class="ftco-footer-widget mb-4">
+						  <h2 class="ftco-heading-2">Наша почта</h2>
+						  <div class="block-23 mb-3">
+							  <ul>
+								  <li><a ><span class="icon icon-envelope"></span><span class="text">msnUltimatum@yandex.ru</span></a></li>
+							  </ul>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="row">
+				  <div class="col-md-12 text-center">
+
+					  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;2020-<script>document.write(new Date().getFullYear());</script> All rights reserved
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				  </div>
+			  </div>
+		  </div>
+	  </footer>
+
+
+
+	  <!-- loader -->
+	  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+	<script>
+
+			/* Menu Slide JS  */
+
+			$(document).ready(function(){
+				$(".menu-btn").on('click',function(e){
+				  e.preventDefault();
+
+					//Check this block is open or not..
+				  if(!$(this).prev().hasClass("open")) {
+					$(".ui-94").slideDown(400);
+					$(".ui-94").addClass("open");
+					$(this).find("i").removeClass().addClass("fa fa-chevron-up");
+				  }
+
+				  else if($(this).prev().hasClass("open")) {
+					$(".ui-94").removeClass("open");
+					$(".ui-94").slideUp(400);
+					$(this).find("i").removeClass().addClass("fa fa-chevron-down");
+				  }
+				});
+			});
+
+		</script>
+	  <script>
+		  <!-- Menu block jquery -->
+		  $(document).ready(function(){
+			  $(".ui-24 .ui-button a").click(function(e){
+				  e.preventDefault();
+				  var btn = $(this);
+				  var block = $(".ui-24");
+				  if(block.hasClass("open")){
+					  block.animate({"left":"-350px"},"300");
+					  block.removeClass("open");
+				  }
+				  else{
+					  block.animate({"left":"0px"},"300");
+					  block.addClass("open");
+				  }
+			  });
+		  });
+	  </script>
+	  <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+	  <script src="../static/js/jquery-migrate-3.0.1.min.js" th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+	  <script src="../static/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+	  <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	  <script src="../static/js/jquery.easing.1.3.js" th:src="@{/js/jquery.easing.1.3.js}"></script>
+	  <script src="../static/js/jquery.waypoints.min.js" th:src="@{/js/jquery.waypoints.min.js}"></script>
+	  <script src="../static/js/jquery.stellar.min.js" th:src="@{/js/jquery.stellar.min.js}"></script>
+	  <script src="../static/js/owl.carousel.min.js" th:src="@{/js/owl.carousel.min.js}"></script>
+	  <script src="../static/js/jquery.magnific-popup.min.js" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	  <script src="../static/js/aos.js" th:src="@{/js/aos.js}"></script>
+	  <script src="../static/js/jquery.animateNumber.min.js" th:src="@{/js/jquery.animateNumber.min.js}"></script>
+	  <script src="../static/js/bootstrap-datepicker.js" th:src="@{/js/bootstrap-datepicker.js}"></script>
+	  <script src="../static/js/jquery.timepicker.min.js" th:src="@{/js/jquery.timepicker.min.js}"></script>
+	  <script src="../static/js/scrollax.min.js" th:src="@{/js/scrollax.min.js}"></script>
+	  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	  <script src="../static/js/google-map.js" th:src="@{/js/google-map.js}"></script>
+	  <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+	  <!-- jQuery -->
+	  <script src="/static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+	  <!-- Bootstrap JS -->
+	  <!-- Placeholder JS -->
+	  <script src="/static/js/placeholder.js" th:src="@{/js/placeholder.js}"></script>
+	  <!-- Respond JS for IE8 -->
+	  <script src="/static/js/respond.min.js" th:src="@{/js/respond.min.js}"></script>
+	  <!-- HTML5 Support for IE -->
+	  <script src="/static/js/html5shiv.js" th:src="@{/js/html5shiv.js}"></script>
+
+	  </body>
+	</html>

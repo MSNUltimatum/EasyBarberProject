@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>Hello</div>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<a href="user"> UserList</a>
+<div>
+<a href="receptiontimeE"> Reception </a>
+</div>
+<div>
+    <a href="serviceEditor">Service Editor</a>
+</div>
+<div>
+    <a href="client-recording">Запишусь-ка я куда-нибудь</a>
+</div>
+</body>
+</html>

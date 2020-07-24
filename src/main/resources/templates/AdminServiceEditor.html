@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+</head>
+<body>
+    <form method="post" th:action="@{'/serviceEditor/' + newService}">
+        <label><input type="text" th:name= "serviceName" placeholder="Service name" /></label>
+        <input type="submit" text="Save"/>
+    </form>
+    <label th:if="${exception != ''}"> <input th:value="${exception}" readonly="readonly"/> </label>
+    <table>
+        <thead>
+        <tr>
+            <th> Название услуги </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="service : ${currentServices}">
+            <td> <input type="text" th:value="${service.getName()}" readonly="readonly" /> </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

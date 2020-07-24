@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:if="${hasException}">
+        <input type="text" th:value="${exception}" readonly="readonly" />
+    </div>
+
+    <form action="/client-recording/search-master" method="post">
+        <div> Найдите мастера </div>
+        <input type="text" name="name" placeholder="Введите имя мастера или оставьте поле пустым" />
+        <input type="text" name="phone" placeholder="Введите номер телефона мастера или оставьте поле пустым" />
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="submit" value="Найти!" />
+    </form>
+
+    <form action="/client-recording/select-master" method="post" th:if="${multipleMasters}">
+        <div> Мы нашли несколько мастеров по данному запросу. Выберите одного из них. </div>
+        <select th:name = "master">
+            <option th:value="-1" selected="selected">Выберите мастера</option>
+            <option th:each="master : ${masters}" th:value="${master.getId()}" th:text="${master.getView()}"></option>
+        </select>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="submit" value="Выбрать!" />
+    </form>
+
+    <form action="/client-recording/select-options" method="post" th:if="${allowOptions}">
+        <div>Выберите тип услуги и день для записи</div>
+        <input type="text" th:value="${selectedMasterName}" readonly="readonly" />
+        <input type="text" th:value="${selectedMasterPhone}" readonly="readonly" />
+        <input type="hidden" name="masterId" th:value="${masterId}" />
+        <select th:name="service">
+            <option th:value="-1" selected="selected">Выберите услугу</option>
+            <option th:each="service : ${services}" th:value="${service.getServices().getId()}" th:text="${service.getServices().getName()}"></option>
+        </select>
+        <input type="date" name="date" th:value="${now}" />
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="submit" value="Выбрать!" />
+    </form>
+
+    <form action="/client-recording/select-time" method="post" th:if="${allowTime}">
+        <div>Выберите время из выпадающего списка</div>
+        <input type="text" th:value="${selectedMasterName}" readonly="readonly" />
+        <input type="text" th:value="${selectedMasterPhone}" readonly="readonly" />
+        <input type="text" th:value="${selectedService.getServices().getName()}" readonly="readonly" />
+        <input type="date" th:value="${selectedDate}" readonly="readonly" />
+        <input type="hidden" name="masterId" th:value="${masterId}" />
+        <input type="hidden" name="serviceId" th:value="${serviceId}">
+        <input type="hidden" name="date" th:value="${date}">
+        <select th:name="time">
+            <option th:value="-1" selected="selected">Выберите время</option>
+            <option th:each="time : ${times}" th:value="${time}" th:text="${time}"></option>
+        </select>
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="submit" value="Записаться!" />
+    </form>
+
+</body>
+</html>

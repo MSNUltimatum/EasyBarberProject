@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>User receptions</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Имя </th>
+        <th> Телефон </th>
+        <th> Время</th>
+        <th> Услуга</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reception : ${receptions}">
+        <td th:each="master : ${masters}" th:if="${master.getId() == reception.getUsrReceptionTime().getMasterId()}">
+            <input type="text" th:value="${master.getUsername()}" readonly="readonly"/>
+            <input type="text" th:value="${master.getPhonenumber()}" readonly="readonly"/>
+        </td>
+        <td><input type="text" th:value="${reception.getUsrReceptionTime().getDate()}" readonly="readonly"/></td>
+        <td><input type="text" th:value="${reception.getUsrReceptionTime().getTime()}" readonly="readonly"/></td>
+        <td th:each="service : ${services}" th:if="${service.getServices().getId() == reception.getServiceId()}">
+            <input type="text" th:value="${service.getServices().getName()}" readonly="readonly"/>
+            <input type="text" th:value="${service.getDescription()}" readonly="readonly"/>
+            <input type="text" th:value="${service.getMaxCost()}" readonly="readonly"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

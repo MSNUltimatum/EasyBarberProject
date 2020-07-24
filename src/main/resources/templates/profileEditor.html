@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang=xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/user/${user.getId()}/editProfileSave}" method="post">
+    <input type="text" name="username" th:value="${user.username}">
+    <table>
+        <thead>
+        <tr>
+            <th> Roles </th>
+            <th><th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="role : ${roles}">
+            <td>
+                <div>
+                    <label><input type="checkbox" th:name="${role}" th:checked ="${#sets.contains(user.roles, role)}" th:text="${role}"> </label>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="hidden" th:value="${user.id}" name="userId">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

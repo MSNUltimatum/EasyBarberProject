@@ -1,0 +1,93 @@
+
+/* UI - X */
+@media(max-width: 500px){
+	.ui-139 .col-mob{
+		width:100%;
+	}
+}
+/* Item */
+.ui-139 .ui-item{
+	max-width: 370px;
+	border:2px solid #ce9c6b;
+	box-shadow:2px 2px 0px 1px rgba(0,0,0,0.06);
+	padding:20px 25px;
+	margin:20px auto;
+}
+/* Main Heading */
+.ui-139 .ui-item h2{
+	font-size: 20px;
+	line-height: 40px;
+	float: left;
+	color:#999;
+	font-weight:400;
+}
+@media(max-width: 325px){
+	.ui-139 .ui-item h2{
+		font-size:16px;
+		line-height:36px;
+	}
+}
+/* Price */
+.ui-139 .ui-item h3{
+	font-size:30px;
+	line-height:40px;
+	float:right;
+	font-weight:400;
+}
+@media(max-width: 325px){
+	.ui-139 .ui-item h3{
+		font-size:24px;
+		line-height:34px;
+		margin-right:18px;
+	}
+}
+.ui-139 .ui-item h3 > span{
+	font-size:18px;
+	color:#888;
+	font-weight:600;
+	margin:0px 3px;
+}
+@media(max-width: 325px){
+	.ui-139 .ui-item h3 > span{
+		font-size:14px;
+	}
+}
+/* Border */
+.ui-139 .ui-item .ui-border{
+	margin:8px 0px;
+	height:2px;
+}
+/* Paragraph */
+.ui-139 .ui-item p{
+	font-size:13px;
+	line-height: 26px;
+	color:#999;
+	margin:15px 0px;
+}
+/* Small Heading */
+.ui-139 .ui-item h4{
+	font-size:15px;
+	line-height:25px;
+	margin-bottom:5px;
+	color:#888;
+}
+/* Unordered Listing */
+.ui-139 .ui-item ul{
+	padding:0px;
+	list-style-type:none;
+	max-width:250px;
+}
+.ui-139 .ui-item ul > li{
+	color:#aaa;
+	position:relative;
+	padding:3px 0px;
+}
+/* Icon */
+.ui-139 .ui-item ul > li > span{
+	color:#888;
+}
+.ui-139 .ui-item ul > li > b{
+	color:#888;
+	position:absolute;
+	right:0px;
+}

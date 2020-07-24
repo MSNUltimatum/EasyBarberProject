@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{'/client-recording/' + ${master.getId()} + '/' + saveRecep}" method="post">
+<input type="text" name="choseDate" th:value="${choseDate}" readonly="readonly"/>
+<select name="userTime" class="AccountType">
+    <option th:value="-1" selected="selected" class="types"
+    >Выберите время</option
+    >
+    <option
+            th:each="time : ${times}"
+            th:value="${time.getUsrReceptionTime().getTime()}"
+            th:text="${time.getUsrReceptionTime().getTime()}"
+    ></option>
+</select>
+<select name="userService" class="AccountType">
+    <option th:value="-1" selected="selected" class="types"
+    >Выберите тип услуги</option
+    >
+    <option
+            th:each="service : ${masterServices}"
+            th:value="${service.getServices().getName()}"
+            th:text="${service.getServices().getName()}"
+    ></option>
+</select>
+<input type="submit" th:value="Записаться"/>
+</form>
+<form th:action="@{'/client-recording/' + ${master.getId()} + '/' + timetable}" method="post">
+    <table>
+        <thead>
+        <tr th:each="dat:${dates}">
+            <input type="submit" size="4" th:name="${dat}" th:value="${dat.getDayOfWeek().toString().substring(0,3) + ',' + dat.getDayOfMonth()}"/>
+        </tr>
+        </thead>
+    </table>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th> Свободное время на текущий день</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="time : ${times}">
+            <th>[[${time.getUsrReceptionTime().getTime()}]]</th>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

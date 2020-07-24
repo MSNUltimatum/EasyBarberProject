@@ -1,0 +1,68 @@
+/************************
+Designed by : http://responsivewebinc.com
+************************/
+/* Open Sans  */
+.ui-24{
+	width:350px;
+	box-shadow:0px 0px 1px rgba(0,0,0,0.5);
+	position:absolute;
+	top:10%;
+	left:-350px;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+@media (max-width:400px){
+	.ui-24{
+		display:none;
+	}
+}
+/* Button */
+.ui-24  .ui-button a{
+	padding:10px;
+	top:50%;
+	margin-top:-25px;
+	left:323px;
+	width:100px;
+	display:block;
+	z-index:1000;
+	-ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+	position:absolute;
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+	font-weight:600;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+}
+/* UI Content */
+.ui-24 .ui-content{
+	text-align:center;
+	padding:20px;
+}
+/* Item */
+.ui-24  .ui-content .ui-item a{
+	height:70px;
+	width:70px;
+	margin:10px auto;
+	border-radius:25px;
+	display:block;
+	background:#fff;
+	border:1px solid rgba(0,0,0,0.1);
+	box-shadow:0px 0px 16px rgba(0,0,0,0.1);
+}
+/* Image */
+.ui-24 .ui-content .ui-item img{
+	max-width:40px;
+	margin:0 auto;
+	margin-top:13px;
+}
+/* Heading */	
+.ui-24 .ui-content h5{
+	text-transform:uppercase;
+	font-size:12px;
+}
+.ui-24 .ui-content h5 a{
+	color:#999;
+}

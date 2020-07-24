@@ -1,0 +1,99 @@
+/* все для таблицы */
+table {
+    overflow: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 20px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th {
+    background: #470359;
+    color: white;
+    padding: 10px 20px;
+}
+
+th,
+td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+}
+
+/* ограничиваю стандартные поля */
+/* поле для номера телефона */
+.TableNumber {
+    max-width: 160px;
+}
+
+/* для даты */
+.TableDate {
+    max-width: 135px;
+}
+
+/* времени */
+.TableTime {
+    max-width: 65px;
+}
+
+/* для кнопок больших экранов - убираю лишнее форматирование */
+.TableButton {
+    padding: 0;
+    background: none;
+}
+
+/* ставлю фиксированный размер для иконок сохранить и удалить */
+.icon {
+    width: 50px;
+}
+
+/* кнопка для маленьких экранов */
+.button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #470359;
+    width: 60%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    display: none;
+}
+
+/* смена расположения */
+@media screen and (max-width: 980px) {
+
+    /* ставлю элементы таблицы в столбец */
+    table td {
+        display: block;
+        padding: 1%;
+    }
+
+    /* убираю верхнюю строку таблицы */
+    th {
+        display: none;
+    }
+
+    /* ставлю кнопки для мобильных */
+    #mobile {
+        display: inline;
+    }
+
+    /* убираю кнопки-иконки для больших экранов */
+    #desktop {
+        display: none;
+    }
+}
+block_4new {
+    display: flex;
+    justify-content: center;
+}

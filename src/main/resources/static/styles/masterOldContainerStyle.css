@@ -1,0 +1,59 @@
+/*----------------------------*/
+/** PEOPLE - OLD CONTAINER   **/
+/** Now we do not need it    **/
+/** but it can be useful     **/
+/** for master's page        **/
+/*----------------------------*/
+
+.member .member-img {
+  position: relative;
+  width: 300px;
+  margin: auto;
+}
+
+.member .member-img img {
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 40px 0px;
+  width: 100%;
+  height: auto;
+}
+
+.member h3 {
+  color: #470359;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.member span {
+  font-size: 18px;
+  color: #470359;
+}
+
+.member-img img {
+  border-color: #470359;
+}
+
+.members {
+  width: 100%;
+}
+
+.member {
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.member-name {
+  margin: 0;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #470359;
+}
+
+.member-role {
+  font-style: italic;
+  font-size: 18px;
+}

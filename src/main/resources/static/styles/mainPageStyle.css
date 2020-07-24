@@ -1,0 +1,111 @@
+
+/*----------------------------*/
+/** CONTAINER **/
+/*----------------------------*/
+
+.ImgBlock {
+  background: black;
+  opacity: 1;
+}
+
+.ImgBlock:hover {
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  min-width: 3 0rem;
+  margin: 1%;
+}
+
+.ServiceLink {
+  color:  #470359;
+  text-decoration: none;
+}
+
+.ServiceLink:hover {
+  text-decoration: none;
+}
+
+
+@media (min-width: 480px) {
+  .containerWrap {
+    margin: 40px 40px 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .containerWrap {
+    margin: 40px 10px 20px;
+  }
+}
+
+@media (min-width: 360px) {
+  .containerWrap {
+    margin: 40px 30px 20px;
+  }
+}
+
+.containerBody {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*----------------------------*/
+/** BUTTON LOGOUT **/
+/*----------------------------*/
+.button {
+  color: #470359;
+  height: 50px;
+  font-size: 20px;
+	letter-spacing: 1px;
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+  background: #F8F9FA;
+	border: 0;
+	cursor: pointer;
+}
+.button:hover{background: rgba(0,0,0,.15); color: #033e7e; }
+
+.mobile {
+  display: none;
+}
+
+.ButtonContainer {
+  position: absolute;
+  margin-left:92%;
+}
+@media (min-width: 1024px) {
+  .ButtonContainer {
+    margin-left:85%;
+  }
+}
+@media (max-width: 900px) {
+  .ButtonContainer {
+    margin-left:70%;
+  }
+  .button {
+    height: 38px;
+  }
+}
+@media (max-width: 970px) {
+  .ButtonContainer {
+    margin-left:70%;
+  }
+}
+@media (max-width: 576px) {
+  .button:hover{background: none;}
+  .button {
+    padding:0px;
+  }
+  .desktop {
+    display:none;
+  }
+  .mobile {
+    display: inline;
+  }
+}

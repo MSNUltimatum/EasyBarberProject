@@ -1,0 +1,116 @@
+div.list {
+    /*Весь блок*/
+    width: 100%;
+    padding-top: 20px;
+}
+
+
+div.container {
+    width: 70%;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+td {
+    text-align: center;
+}
+
+
+tr {
+    border-bottom: 20px solid;
+    border-color: #fff;
+
+}
+
+
+
+tbody tr {
+    background: rgb(177, 177, 177);
+}
+
+table h5 {
+    color: rgb(64, 32, 75);
+}
+
+tbody tr:hover {
+    background: rgba(71, 3, 89, 0.86);
+}
+
+tbody tr:hover h5 {
+    color: rgb(242, 242, 242);
+}
+
+a h5:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.photo {
+    width: 25%;
+    /*этим регулировать ширину=высоту ячейки, куда вписана фотка*/
+    min-width: 150px;
+    padding: 10px;
+}
+
+.first {
+    padding-right: 10px;
+    width: 40%;
+}
+
+.second {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 25%;
+}
+
+.third {
+    padding-left: 10px;
+    padding-right: 20px;
+    width: 40%;
+}
+
+
+
+
+/*для фото
+*лучше ничего не трогать, оно работает*/
+.img-conteiner {
+    /*блок в блоке1 куда вставим фото*/
+    width: 100%;
+    /*относительно блока1*/
+    margin: auto;
+}
+
+
+.image-wrap {
+    width: 100%;
+    /* Ширина области */
+    height: 100%;
+    /* Высота области */
+    margin: 0;
+    /* Обнуляем отступы */
+    overflow: hidden;
+    /* Прячем всё за пределами */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bord {
+    width: 90%;
+    /* Ширина изображений */
+    height: 90%;
+    /* Высота изображении */
+    object-fit: cover;
+    /* Вписываем фотографию в область */
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 2px;
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Easy barber</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="../static/styles/open-iconic-bootstrap.min.css" th:href="@{/styles/open-iconic-bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/styles/animate.css" th:href="@{/styles/animate.css}">
+    <link rel="stylesheet" href="../static/styles/owl.carousel.min.css" th:href="@{/styles/owl.carousel.min.css}">
+    <link rel="stylesheet" href="../static/styles/owl.theme.default.min.css" th:href="@{/styles/owl.theme.default.min.css}">
+    <link rel="stylesheet" href="../static/styles/magnific-popup.css" th:href="@{/styles/magnific-popup.css}">
+
+    <link rel="stylesheet" href="../static/styles/aos.css" th:href="@{/styles/aos.css}">
+
+    <link type="text/css" rel="stylesheet" href="../static/styles/ionicons.min.css" th:href="@{/styles/ionicons.min.css}">
+
+    <link rel="stylesheet" href="../static/styles/bootstrap-datepicker.css" th:href="@{/styles/bootstrap-datepicker.css}">
+    <link rel="stylesheet" href="../static/styles/jquery.timepicker.css" th:href="@{/styles/jquery.timepicker.css}">
+
+    <link rel="stylesheet" href="../static/styles/icomoon.css" th:href="@{/styles/icomoon.css}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/flaticon.css" th:href="@{/styles/flaticon.css}">
+    <link rel="stylesheet" href="../static/styles/myStyle.css" th:href="@{/styles/myStyle.css}">
+    <link
+            rel="stylesheet"
+            href="../static/styles/masterProfilePageStyle.css"
+            th:href="@{/styles/masterProfilePageStyle.css}"
+    />
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+    ></script>
+    <style>
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        #hidden {
+            display:none;
+        }
+        select {
+            border-radius: 0;
+            background-color: #000 ;
+        }
+        #city {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">Easy barber</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/masterList/page/1" class="nav-link">Masters</a></li>
+                <li class="nav-item active" ><a href="/personalArea" class="nav-link">Personal Area</a></li>
+                <li class="nav-item" >
+                    <label for="exit" class="nav-link">Exit</label>
+                </li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" id="exit" class="inputfile" th:value="Выйти"  />
+                </form>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<div class="hero-wrap" style="background-image: url('../image/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-6 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-3 mt-5 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Личный кабинет</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-intro">
+    <div class="container-wrap">
+        <div class="wrap d-md-flex align-items-end">
+            <div class="info" style="; min-width: 300px; padding: 1% 1% 1% 2%; width: calc(100% - 80%);}">
+                <div class="text">
+                    <h3><a class="navbar-brand" href="index.html">Easy barber </a></h3>
+                    <p>your style begins with us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-bg-dark" style="padding-top: 30px; padding-bottom: 30px">
+    <div class="row">
+        <div class="col pt-3 d-flex justify-content-center">
+            <a href="/personalArea"  class="btn btn-primary py-3 px-4" style="width:250px; height:65px; font-size: 25px; padding-top: 5px;">Обо мне</a>
+        </div>
+        <div class="col pt-3 d-flex justify-content-center">
+            <a th:href="'/client-recording/clientReceps'"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мои записи</a>
+        </div>
+        <div class="col pt-3 d-flex justify-content-center">
+            <a th:href="'/receptiontimeE/serviceEditor'"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мои услуги</a>
+        </div>
+        <div class="col pt-3 d-flex justify-content-center">
+            <a href="/portfolio"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мое портфолио</a>
+        </div>
+        <div class="col pt-3 d-flex justify-content-center">
+            <a href="/receptiontimeE/myClients"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мои клиенты</a>
+        </div>
+        <div class="col pt-3 d-flex justify-content-center">
+            <a th:href="@{'/receptiontimeE/timetable/' + ${choseDate}}"  class="btn btn-primary py-3 px-4" style="width:250px;height:65px; font-size: 25px; padding-top: 5px;">Мое расписание</a>
+        </div>
+    </div>
+</section>
+<section class="ftco-appointment">
+    <div class="overlay"></div>
+    <div class="container-wrap">
+        <div class="row no-gutters d-md-flex align-items-center">
+            <div class="col-md-6 appointment ftco-animate">
+                <form method="post" th:action="@{'/receptiontimeE/serviceEditor/' + newService}" class="login-form appointment-form">
+                    <h3 class="mb-3">Услуги</h3>
+                    <div class="d-md-flex">
+                        <div class="form-group">
+                            <select th:name = "userService" class="form-control" required>
+                                <option th:value="-1" selected="selected" style="background-color: #000;" class="types" disabled>Выберите тип услуги</option>
+                                <option style="background-color: #000;" th:each="service : ${services}" th:value="${service.getName()}"
+                                        th:text="${service.getName()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+                        <div class="form-group">
+                            <input type="text" th:name= "description" class="form-control" placeholder="Service description" required/>
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+                        <div class="form-group">
+                            <input type="text" th:name= "cost" class="form-control" placeholder="Service cost" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn btn-primary py-3 px-4">
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 align-content-center">
+                <h2>Мои услуги</h2>
+                <p class="text-h3">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Название</th>
+                        <th>Описание</th>
+                        <th>Стоимость</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="service,statice:${addedServices}">
+                        <th scope="row">[[${statice.index}]]</th>
+                        <td>[[${service.getServices().getName()}]]</td>
+                        <td>[[${service.getDescription()}]]</td>
+                        <td>[[${service.getCost()}]]</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="ftco-footer ftco-section img">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">О нас</h2>
+                    <p>В случае возникновения конфликтов или неполадок, проблем, при работе с сайтом, пожалуйста обратитесь в нашу поддержку по почте.
+                        Наши менеджеры помогут урегулировать конфликт и ответят на все вопросы.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Наша почта</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><a ><span class="icon icon-envelope"></span><span class="text">msnUltimatum@yandex.ru</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;2020-<script>document.write(new Date().getFullYear());</script> All rights reserved
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+<script> //устанавливает высоту блока с фото равной ширине (чтобы был квадрат)
+$(function(){
+    $('.img-conteiner').height($('.img-conteiner').width());
+
+    $(window).resize(function(){
+        $('.img-conteiner').height($('.img-conteiner').width());
+    });
+});
+</script>
+<script>
+    $(document).ready(function () {
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $(".avatar").attr("src", e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        };
+        $(".file-upload").on("change", function () {
+            readURL(this);
+        });
+    });
+</script>
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/jquery-migrate-3.0.1.min.js" th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+<script src="../static/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/jquery.easing.1.3.js" th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script src="../static/js/jquery.waypoints.min.js" th:src="@{/js/jquery.waypoints.min.js}"></script>
+<script src="../static/js/jquery.stellar.min.js" th:src="@{/js/jquery.stellar.min.js}"></script>
+<script src="../static/js/owl.carousel.min.js" th:src="@{/js/owl.carousel.min.js}"></script>
+<script src="../static/js/jquery.magnific-popup.min.js" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script src="../static/js/aos.js" th:src="@{/js/aos.js}"></script>
+<script src="../static/js/jquery.animateNumber.min.js" th:src="@{/js/jquery.animateNumber.min.js}"></script>
+<script src="../static/js/bootstrap-datepicker.js" th:src="@{/js/bootstrap-datepicker.js}"></script>
+<script src="../static/js/jquery.timepicker.min.js" th:src="@{/js/jquery.timepicker.min.js}"></script>
+<script src="../static/js/scrollax.min.js" th:src="@{/js/scrollax.min.js}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="../static/js/google-map.js" th:src="@{/js/google-map.js}"></script>
+<script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

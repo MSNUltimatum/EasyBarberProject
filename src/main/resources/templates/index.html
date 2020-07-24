@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <title>Easy barber</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      />
+      <link rel="stylesheet" href="../static/styles/open-iconic-bootstrap.min.css" th:href="@{/styles/open-iconic-bootstrap.min.css}">
+      <link rel="stylesheet" href="../static/styles/animate.css" th:href="@{/styles/animate.css}">
+      <link rel="stylesheet" href="../static/styles/owl.carousel.min.css" th:href="@{/styles/owl.carousel.min.css}">
+      <link rel="stylesheet" href="../static/styles/owl.theme.default.min.css" th:href="@{/styles/owl.theme.default.min.css}">
+      <link rel="stylesheet" href="../static/styles/magnific-popup.css" th:href="@{/styles/magnific-popup.css}">
+
+      <link rel="stylesheet" href="../static/styles/aos.css" th:href="@{/styles/aos.css}">
+
+      <link type="text/css" rel="stylesheet" href="../static/styles/ionicons.min.css" th:href="@{/styles/ionicons.min.css}">
+
+      <link rel="stylesheet" href="../static/styles/bootstrap-datepicker.css" th:href="@{/styles/bootstrap-datepicker.css}">
+      <link rel="stylesheet" href="../static/styles/jquery.timepicker.css" th:href="@{/styles/jquery.timepicker.css}">
+
+      <link rel="stylesheet" href="../static/styles/icomoon.css" th:href="@{/styles/icomoon.css}">
+      <link rel="stylesheet" type="text/css" href="../static/styles/flaticon.css" th:href="@{/styles/flaticon.css}">
+      <link rel="stylesheet" href="../static/styles/myStyle.css" th:href="@{/styles/myStyle.css}">
+      <style>
+          .inputfile {
+              width: 0.1px;
+              height: 0.1px;
+              opacity: 0;
+              overflow: hidden;
+              position: absolute;
+              z-index: -1;
+          }
+      </style>
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/">Easy barber</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/masterList/page/1" class="nav-link">Masters</a></li>
+              <li class="nav-item" th:unless="${user == -1}"><a href="/personalArea" class="nav-link">Personal Area</a></li>
+              <li class="nav-item" th:if="${user == -1}"><a href="/login" class="nav-link">Log in/Registration</a></li>
+                <li class="nav-item" th:unless="${user == -1}" >
+                    <label for="exit" class="nav-link">Exit</label>
+                </li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" id="exit" class="inputfile" th:value="Выйти"  />
+                </form>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap js-fullheight" style="background-image: url('../image/bg-5.jpg'); opacity: 40%;" data-stellar-background-ratio="0.5">
+    </div>
+
+    <section class="ftco-intro">
+    	<div class="container-wrap">
+    		<div class="wrap d-md-flex align-items-end">
+	    		<div class="info" style="; min-width: 300px; padding: 1% 1% 1% 2%; width: calc(100% - 80%);}">
+	    			<div class="text">
+	    						<h3><a class="navbar-brand" href="index.html">Easy barber </a></h3>
+	    						<p>is a territory for a real masculine style.</p>
+                    </div>
+	    		</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center mb-4">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Добро пожаловать на сервис <span>Easy barber</span></h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+          </div>
+        </div>
+    		<div class="row justify-content-center">
+    			<div class="col-md-8 text-center ftco-animate">
+    				<p>Мы - это молодой, но быстро развивающийся портал. Здесь каждый мужчина сможет найти себе мастера по душе!
+                            На сайте представлены только профессиональные и квалифицированные барберы. Все они прошли тщательную проверку, перед регистрацией на сайте.
+                        Перечень услуг разнообразен. Это не только разнообразные стрижки и укладки, но и моделирование усов или бороды, а также СПА. </p>
+                </div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-bg-dark">
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+              	<span class="flaticon-scissor-and-comb"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Стрижка &amp; Укладка</h3>
+                <p>После стрижки, мастера сделают вам укладку, которая будет держаться еще несколько дней. Осталось только выбрать образ!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-4">
+              	<span class="flaticon-male-head-hair-and-beard"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Моделирование бороды</h3>
+                <p>Порой, борода растет не так как хочется. Подобрать правильный уход, ускорить рост и выстроить форму помогут профессионалы.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-4"><span class="flaticon-heads-hairs-and-scissors"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Колорирование</h3>
+                <p>Не бойтесь перемен! Возможно реализовать любые покраски: от простого мелирования и осветления, до необычного цвета волос.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section" style="padding-right: 15px; padding-left: 15px;">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Выберите интересующую услугу</h2>
+			  <p>Выберите интересующую вас услугу, а мы подберем для Вас мастеров.</p>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-4 mb-sm-4 ftco-animate">
+          	<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px" >
+              <a href="/masterList/mainPage/haircut" class="block-20" style="background-image: url('../image/haircut.jpg');">
+              </a>
+              <div class="text py-4 d-block">
+                <h3 class="heading mt-2"><a href="/masterList/mainPage/haircut">Мужская стрижка</a></h3>
+                <p>Настоящего джентльмена всегда отличает привлекательная стрижка. И она не обязательно должна быть по последнему писку моды, а всего лишь быть аккуратной и опрятно выглядеть. Мастера способны сделать любые стрижки от милитари, до креативных вариантов.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ml-auto mr-auto mb-sm-4 ftco-animate">
+          	<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+              <a href="/masterList/mainPage/children" class="block-20" style="background-image: url('../image/childrenHaircut.jpg');">
+              </a>
+              <div class="text py-4 d-block">
+                <h3 class="heading mt-2"><a href="/masterList/mainPage/children">Детская стрижка</a></h3>
+                <p>Внешний вид ребенка закладывает в него уверенность. Стрижка очень важна даже  в столь юном возрасте. И она не должна быть скучной! Мастера способны выбрить разнообразные фигуры по запросу вашего ребенка.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-sm-4 ftco-animate" >
+          	<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+              <a href="/masterList/mainPage/clipper" class="block-20" style="background-image: url('../image/machine.png');">
+              </a>
+              <div class="text py-4 d-block">
+                <h3 class="heading mt-2"><a href="/masterList/mainPage/clipper">Стрижка машинкой</a></h3>
+                <p>Благодаря различным насадкам, можно добиться аккуратного волоса любой длины. Прекрасно подойдет тем, кто не любит стрижки, с длинными волосами.</p>
+              </div>
+            </div>
+          </div>
+		<div class="col-lg-4 mb-sm-4 ftco-animate" >
+		<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+		  <a href="/masterList/mainPage/fade" class="block-20" style="background-image: url('../image/fade.jpg');">
+		  </a>
+		  <div class="text py-4 d-block">
+			<h3 class="heading mt-2"><a href="/masterList/mainPage/fade">Фейд</a></h3>
+			<p>Фейд может быть самым разнообразным: низким, удлиненным или классическим. Выбирать вам! А с помощью триммера, наши мастера способны создать различные стильные полосы, которые подчеркнуть вашу индивидуальность. </p>
+		  </div>
+		</div>
+	  </div>
+		<div class="col-lg-4 ml-auto mr-auto mb-sm-4 ftco-animate">
+		<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+		  <a href="/masterList/mainPage/beard" class="block-20" style="background-image: url('../image/beardHaircut.png');">
+		  </a>
+		  <div class="text py-4 d-block">
+			<h3 class="heading mt-2"><a href="/masterList/mainPage/beard">Моделирование бороды</a></h3>
+			<p>Борода с четкой окантовкой или естественной формой - решать тебе. Ее привлекательность - в ухоженности. Наши барберы выстроят форму с учетом ваших пожеланий!</p>
+		  </div>
+		</div>
+	  </div>
+		<div class="col-lg-4 mb-sm-4 ftco-animate">
+		<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+		  <a href="/masterList/mainPage/shaving" class="block-20" style="background-image: url('../image/dangerShaving.png');">
+		  </a>
+		  <div class="text py-4 d-block">
+			<h3 class="heading mt-2"><a href="/masterList/mainPage/shaving">Опасное бритье</a></h3>
+			<p>Существуют традиции, одинаково актуальные на протяжении многих веков — именно они привносят в нашу жизнь особый шарм. Одним из таких стародавних мужских ритуалов считается бритье опасной бритвой, популярность которого сегодня растет.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="col-lg-4 ml-auto mr-auto mb-sm-4 ftco-animate">
+		  <div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+			  <a href="/masterList/mainPage/сamouflage" class="block-20" style="background-image: url('../image/camouflage.jpg');">
+			  </a>
+			  <div class="text py-4 d-block">
+				  <h3 class="heading mt-2"><a href="/masterList/mainPage/beard">Камуфляж</a></h3>
+				  <p>Голова начала покрываться благородной сединой и вы хотите любыми способами это скрыть? Тогда стрижка-камуфляж седых волос – то, что вам действительно необходимо.</p>
+			  </div>
+		  </div>
+	  </div>
+	  <div class="col-lg-4 ml-auto mr-auto mb-sm-4 ftco-animate">
+		  <div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+			  <a href="/masterList/mainPage/styling" class="block-20" style="background-image: url('../image/styling.jpg');">
+				</a>
+				<div class="text py-4 d-block">
+					<h3 class="heading mt-2"><a href="/masterList/mainPage/beard">Укладка</a></h3>
+					<p>Наши барберы обеспечат идеальную укладку, с помощью профессиональных средств, в любой важный день.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 ml-auto mr-auto mb-sm-4 ftco-animate">
+			<div class="blog-entry align-self-stretch" style="bordeR: 1px solid #ce9c6b; padding: 15px; height: 560px ">
+				<a href="/masterList/mainPage/mask" class="block-20" style="background-image: url('../image/black_mask.jpg');">
+				</a>
+				<div class="text py-4 d-block">
+					<h3 class="heading mt-2"><a href="/masterList/mainPage/beard">Black mask</a></h3>
+					<p>Простая, но очень полезная процедура для лица. Она не только матирует, очищает поры, убирает жирный блеск, но и предотвращает появление акне и устраняет микровоспаления. </p>
+				</div>
+			</div>
+		</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-bg-dark">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Наши мастера</h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            <p class="mt-5">Наши мастера - настоящие профессионалы свое дела.</p>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+        		<div class="staff">
+      				<div class="img mb-4" style="background-image: url(../image/rusBlog.jpg);"></div>
+      				<div class="info text-center">
+      					<h3><a href="teacher-single.html">Rustam Khayrushev</a></h3>
+      					<span class="position">Hair Specialist</span>
+      					<div class="text">
+	        				<p>Barber is not a job, but a lifestyle.</p>
+	        			</div>
+      				</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+        		<div class="staff">
+      				<div class="img mb-4" style="background-image: url(../image/person_2.jpg);"></div>
+      				<div class="info text-center">
+      					<h3><a href="teacher-single.html">Mark Wilson</a></h3>
+      					<span class="position">Hair Specialist</span>
+      					<div class="text">
+	        				<p>Our masters are not just a team - we are a family.</p>
+	        			</div>
+      				</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+        		<div class="staff">
+      				<div class="img mb-4" style="background-image: url(../image/Dima.jpg);"></div>
+      				<div class="info text-center">
+      					<h3><a href="teacher-single.html">Dmitry Сhizhov</a></h3>
+      					<span class="position">Hair Stylist</span>
+      					<div class="text">
+	        				<p> Barber is not only a master, but also a friend.</p>
+	        			</div>
+      				</div>
+        		</div>
+        	</div>
+        	<div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
+        		<div class="staff">
+      				<div class="img mb-4" style="background-image: url(../image/person_4.jpg);"></div>
+      				<div class="info text-center">
+      					<h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
+      					<span class="position">Hair Specialist</span>
+      					<div class="text">
+	        				<p>Barbershop is not an ordinary institution, but a men's club where everyone can put their head and thoughts in order.</p>
+	        			</div>
+      				</div>
+        		</div>
+        	</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-gallery">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Галлерея</h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            </div>
+        </div>
+    	</div>
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a  class="gallery img d-flex align-items-center" style="background-image: url(../image/rusGalary.jpg);">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a  class="gallery img d-flex align-items-center" style="background-image: url(../image/gallery-2.png);">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a  class="gallery img d-flex align-items-center" style="background-image: url(../image/gallery-3.jpg);">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a class="gallery img d-flex align-items-center" style="background-image: url(../image/gallery-4.jpg);">
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+
+
+		<section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(../image/bg_1.jpg);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+        	<div class="col-md-10">
+        		<div class="row">
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
+		              	<strong class="number" data-number="705">0</strong>
+		              	<span>Creative Makeup</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
+		              	<strong class="number" data-number="1000">0</strong>
+		              	<span>Number of Awards</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
+		              	<strong class="number" data-number="3000">0</strong>
+		              	<span>Happy Clients</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-scissor-and-comb"></span></div>
+		              	<strong class="number" data-number="900">0</strong>
+		              	<span>Piercing Done</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftco-footer ftco-section img">
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">О нас</h2>
+              <p>В случае возникновения конфликтов или неполадок, проблем, при работе с сайтом, пожалуйста обратитесь в нашу поддержку по почте.
+                  Наши менеджеры помогут урегулировать конфликт и ответят на все вопросы.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Наша почта</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><a ><span class="icon icon-envelope"></span><span class="text">msnUltimatum@yandex.ru</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;2020-<script>document.write(new Date().getFullYear());</script> All rights reserved
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+    <script type="text/javascript" src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery-migrate-3.0.1.min.js" th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+    <script type="text/javascript" src="../static/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.easing.1.3.js" th:src="@{/js/jquery.easing.1.3.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.waypoints.min.js" th:src="@{/js/jquery.waypoints.min.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.stellar.min.js" th:src="@{/js/jquery.stellar.min.js}"></script>
+    <script type="text/javascript" src="../static/js/owl.carousel.min.js" th:src="@{/js/owl.carousel.min.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.magnific-popup.min.js" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script type="text/javascript" src="../static/js/aos.js" th:src="@{/js/aos.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.animateNumber.min.js" th:src="@{/js/jquery.animateNumber.min.js}"></script>
+    <script type="text/javascript" src="../static/js/bootstrap-datepicker.js" th:src="@{/js/bootstrap-datepicker.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.timepicker.min.js" th:src="@{/js/jquery.timepicker.min.js}"></script>
+    <script type="text/javascript" src="../static/js/scrollax.min.js" th:src="@{/js/scrollax.min.js}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script type="text/javascript" src="../static/js/google-map.js" th:src="@{/js/google-map.js}"></script>
+    <script type="text/javascript" src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+
+  </body>
+</html>

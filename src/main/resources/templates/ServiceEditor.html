@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+</head>
+<body>
+    <form method="post" th:action="@{'/receptiontimeE/serviceEditor/' + newService}">
+        <label> <select th:name = "userService" class="AccountType">
+                    <option th:value="-1" selected="selected" class="types">Выберите тип услуги</option>
+                    <option th:each="service : ${services}" th:value="${service.getName()}"
+                            th:text="${service.getName()}"></option>
+                </select>
+        </label>
+        <label><input type="text" th:name= "description" placeholder="Service description" /></label>
+        <label><input type="text" th:name= "minCost" placeholder="Service minimal cost" /></label>
+        <label><input type="text" th:name= "maxCost" placeholder="Service max cost" /></label>
+        <input type="submit" text="Save"/>
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th> Название услуги </th>
+            <th> Описание услуги </th>
+            <th> Минимальная стоимость </th>
+            <th> Максимальная стоимость </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="service : ${addedServices}">
+            <form th:action="@{'/receptiontimeE/serviceEditor/' + saveService}" method="post">
+                <td> <input type="text" th:name="serviceName" th:value="${service.getServices().getName()}" readonly="readonly" /> </td>
+                <td> <input type="text" th:name="serviceDescription" th:value="${service.getDescription()}"/> </td>
+                <td> <input type="text" th:name="serviceMinCost" th:value="${service.getMinCost()}"/> </td>
+                <td> <input type="text" th:name="serviceMaxCost" th:value="${service.getMaxCost()}"/> </td>
+                <td> <input type="submit" th:name="save" th:value="Save"/></td>
+            </form>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

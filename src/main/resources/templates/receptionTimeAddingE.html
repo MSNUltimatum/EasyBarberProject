@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{'/receptiontimeE/' + receptionRegistration}" method="post">
+    <input type="date" th:name= "date" th:value="${currentDate}" />
+    <input type="time" th:name= "time" th:value="${currentTime}" />
+    <input type="text" th:name= "userName" placeholder="Имя"/>
+    <input type="text" th:name= "userPhone" placeholder="Телефон"/>
+    <!--Переделать на выбор услуги из списка-->
+        <select th:name = "serviceType" class="AccountType">
+            <option th:value="-1" selected="selected" class="types">Выберите тип услуги</option>
+            <th th:each="service : ${servises}">
+                <option th:value="${service.getName()}" th:text="${service.getName()}"></option>
+            </th>
+        </select>
+    <input type="submit" value="Save"/>
+</form>
+<form th:action="@{'/receptiontimeE/' + receptionRegistrationArabian}" method="post">
+    <input type="date" th:name= "date" th:value="${currentDate}" />
+    <input type="time" th:name="beginTime" th:value="${currentTime}"/>
+    <input type="time" th:name="endTime" th:value="${currentTime}"/>
+    <div th:each="int : ${spans}">
+        <label><input type="radio" th:value="${int}" name="span" th:text="${int}"></label>
+    </div>
+    <input type="submit" value="Save"/>
+</form>
+<form th:action="@{'/receptiontimeE/' + timetable}" method="post">
+    <table>
+        <thead>
+        <tr th:each="dat:${dates}">
+            <input type="submit" size="4" th:name="${dat}" th:value="${dat.getDayOfWeek().toString().substring(0,3) + ',' + dat.getDayOfMonth()}"/>
+        </tr>
+        </thead>
+    </table>
+</form>
+<table th:unless="${#lists.isEmpty(reseptionTime)}">
+    <thead>
+    <tr>
+        <th> Имя </th>
+        <th> Телефон </th>
+        <th> Дата</th>
+        <th> Время</th>
+        <th> Услуга</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="time : ${reseptionTime}">
+        <form th:action="@{'/receptiontimeE/' + saveRecep}" method="post">
+            <td> <input type="text" th:name="userName" th:value="${time.getClientName()}"  /> </td>
+            <td> <input type="text" th:name="userPhone" th:value="${time.getClientPhonenumber()}" /> </td>
+            <td> <input type="text" th:name="date" th:value="${time.getUsrReceptionTime().getDate()}" readonly="readonly" /> </td>
+            <td> <input type="text" th:name="userTime" th:value="${time.getUsrReceptionTime().getTime()}"  /> </td>
+            <td>
+                <select th:name = "userService" class="AccountType">
+                    <option th:value="-1" selected="selected" class="types">Выберите тип услуги</option>
+                    <option th:each="service : ${servises}" th:value="${service.getName()}"
+                            th:selected="${service.getId() == time.getServiceId()}"
+                            th:text="${service.getName()}"></option>
+                </select>
+            </td>
+            <td><input type="submit" th:name="save" th:value="Save"></td>
+            <td><input type="submit" th:name="delete" th:value="Delete"></td>
+        </form>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a href="/">Home</a>
+</div>
+</body>
+</html>

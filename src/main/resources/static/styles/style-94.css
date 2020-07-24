@@ -1,0 +1,145 @@
+/************************
+Designed by : http://responsivewebinc.com
+************************/
+/* Open Sans  */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600');
+/* General */
+/* Social Media */
+.facebook {	background: #3280e7; }
+.facebook:hover { background: #134fa0; }
+.twitter { background: #32c8de;}
+.twitter:hover {	background: #188392;}
+.google-plus {background: #f96f4a;}
+.google-plus:hover {	background: #eb6440;}
+.linkedin  {	background: #729fda;}
+.linkedin:hover {background: #3069b6;}
+.pinterest {	background: #ed5441;}
+.pinterest:hover { background: #b72411;}
+.dropbox {background: #32c8de;}
+.dropbox:hover {	background: #188392;}
+.bitcoin {background: #f8a841;}
+.bitcoin:hover {	background: #cc7607;}
+.foursquare {background: #22bed4;}
+.foursquare:hover {background: #146f7c;}
+.flickr { background: #ff61e7;}
+.flickr:hover {	background: #fa00d4;}
+.github {background: #666666;}
+.github:hover {	background: #333333;}
+.instagram {	background: #d6917a;}
+.instagram:hover {background: #b35637;}
+.skype {background: #32c8de;}
+.skype:hover {background: #188392;}
+.tumblr {background: #84a1c8;}
+.tumblr:hover {background: #476d9f;}
+.vimeo {background: #32c8de;}
+.vimeo:hover {background: #188392;}
+.dribbble{background: #ff2edf;}
+.dribbble:hover {background: #c700a9;}
+.youtube {background: #ed5441;}
+.youtube:hover {	background: #b72411;}
+
+/* UI X */
+.ui-94{
+	padding: 10px 0;
+	background: #444;
+	position: relative;
+	display:none;
+	z-index: 2000;
+	border-bottom:2px solid #ce9c6b;
+}
+@media (max-width:400px){
+	.ui-94 .col{
+		width:100%;
+		float:none;
+	}
+}
+.ui-94 .navigation .menu{
+	box-shadow: 0px 0px 10px #333;
+}
+.ui-94 .navigation .menu span{
+	display: block;
+	margin-top: 14px;
+	padding: 8px 20px;
+	font-size: 13px;
+	color: #fff;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	text-transform:uppercase;
+	font-weight:600;
+}
+.ui-94 .navigation .menu .menu-list ul{
+	list-style: none;
+	padding-left: 0px;
+}
+.ui-94 .navigation .menu .menu-list ul li{
+	padding: 7px 20px;
+	background: #fff;
+	border: 1px solid #eee;
+	border-top: 0;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;	
+	font-weight:600;
+}
+.ui-94 .navigation .menu .menu-list ul li:last-child{
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+}
+.ui-94 .navigation .menu .menu-list ul li:hover{
+	background: #f6f6f6;
+}
+.ui-94 .navigation .menu .menu-list ul li a{
+	font-size: 13px;
+}
+.ui-94 .navigation .menu .menu-list ul li a i{
+	display: inline-block;
+	width: 20px;
+	font-size: 15px;
+	margin-right:5px;
+}
+.ui-94 .navigation .sform{
+	margin: 15px 0;
+	padding: 10px 15px;
+	box-shadow: 0px 0px 10px #333;
+}
+.ui-94 .navigation .sform span{
+	display: block;
+	padding-bottom: 8px;
+	margin-bottom: 12px;
+	border-bottom: 1px dashed #ddd;
+	font-size: 13px;
+	font-weight:600;
+	text-transform:uppercase;
+	color: #888;
+}
+.ui-94 .navigation .sform .form .form-group input{
+	margin-bottom: 10px;
+}
+/* Navigation Menu Button */
+.menu-btn{
+	position: absolute;
+	right: 10%;
+	z-index: 2000;
+}
+.menu-btn a{
+	display: inline-block;
+	width: 80px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 13px;
+	font-weight:600;
+	color: #fff;
+	text-transform:uppercase;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+}
+.menu-btn a i{
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	font-size: 11px;
+	font-weight:normal;
+}

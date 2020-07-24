@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>User Editor</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+</head>
+<body>
+<form th:action="@{'/user/'+ ${user.id} +'/'+ timetable}" method="post">
+    <table>
+        <thead>
+        <tr th:each="dat:${dates}">
+            <input type="submit" size="4" th:name="${dat}" th:value="${dat.getDayOfWeek().toString().substring(0,3) + ',' + dat.getDayOfMonth()}"/>
+        </tr>
+        </thead>
+    </table>
+</form>
+    <div th:unless="${#lists.isEmpty(reseptionTime)}">
+        <table>
+            <thead>
+            <tr>
+                <th> Имя </th>
+                <th> Телефон </th>
+                <th> Время</th>
+                <th> Услуга</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="time : ${reseptionTime}">
+                    <form th:action="@{'/user/' + ${user.getId()} + '/edit'}" method="post">
+                        <td> <input th:name="userName" type="text" th:value="${time.getClientName()}" /> </td>
+                        <td> <input th:name="userPhone" type="text" th:value="${time.getClientPhonenumber()}" /> </td>
+                        <td> <input th:name="userTime" type="text" th:value="${time.getUsrReceptionTime().getTime()}" /> </td>
+                        <td> <input th:name="id" type="hidden" th:value="${time.getUsrReceptionTime().getDate()}" /></td>
+                        <td>
+                            <select th:name = "userService" class="AccountType">
+                                <option th:value="-1" selected="selected" class="types">Выберите тип услуги</option>
+                                <option th:each="service : ${servises}" th:value="${service.getServices().getName()}"
+                                        th:selected="${service.getServices().getId() == time.getServiceId()}"
+                                        th:text="${service.getServices().getName()}"></option>
+                            </select>
+                        </td>
+                        <td><input type="submit" name="save" th:value="Save"></td>
+                        <td><input type="submit" name="delete" th:value="Delete"></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(reseptionTime)}">
+        На эту дату записей нет.
+    </div>
+    <a th:href="@{'/user/' + ${user.getId()} + '/editProfile'}">Edit Profile</a>
+</body>
+</html>
