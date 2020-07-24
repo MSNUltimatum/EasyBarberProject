@@ -223,21 +223,23 @@
 								</div>
 							</form>
 						</div>
-							<form th:action="@{'/portfolio/' + photoLoading}" method="post" class="login-form appointment-form" id="hidden" enctype="multipart/form-data">
-								<div class="col-md-12 ftco-animate">
-									<div class="blog-entry align-self-stretch">
-										<img class="block-20 avatar" src="../image/master.png" style="object-fit: cover; "/>
-										<div class="text py-4 d-block">
-											<div class="">
-												<textarea th:name="description" name="" id="" cols="30" rows="7" placeholder="Short decription" style="font-size: 20px; height: 150px; background-color: transparent; resize: none; color: WHITE; "></textarea>
-											</div>
-												<input type="submit" value="Save" class="btn btn-primary py-3 px-5">
-												<label for="file" class=" btn btn-primary py-3 px-3 mt-2">Choose a file</label>
-												<input type="file" name="file" id="file" class="inputfile file-upload" />
+						<form th:action="@{'/portfolio/' + photoLoading}" method="post" class="login-form appointment-form" id="hidden" enctype="multipart/form-data">
+							<div class="col-md-12 ftco-animate">
+								<div class="blog-entry align-self-stretch">
+									<img class="block-20 avatar" src="../image/master.png" style="max-width: 320px;object-fit: cover; "/>
+									<div class="text py-4 d-block">
+										<div class="form-group mb-0">
+											<textarea th:name="description" name="" id="" cols="30" rows="7" placeholder="Short decription" style="font-size: 20px; height: 150px; max-width: 350px; background-color: transparent; resize: none; color: WHITE; "></textarea>
+										</div>
+										<div class="form-group">
+											<input type="submit" value="Save" class="btn btn-primary py-3 px-5">
+											<label for="file" class=" btn btn-primary py-3 px-3 mt-2">Choose a file</label>
+											<input type="file" name="file" id="file" class="inputfile file-upload" />
 										</div>
 									</div>
 								</div>
-							</form>
+							</div>
+						</form>
 					<div class="col-md-1">
 						<b class="message" style="color: WHITE;">
 							<a class="btn btn-primary btn-circle">+</a>
