@@ -31,11 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public  PasswordEncoder passwordEncoder;
 
-    @Bean
-    public PasswordEncoder getPasswordEncoder()
-    {
-        return new BCryptPasswordEncoder(8);
-    }
 
     @Autowired
     Securityhandler securityhandler;
