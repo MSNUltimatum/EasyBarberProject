@@ -39,8 +39,7 @@ public class PortfolioController {
     @Autowired
     MasterPortfolioRepo masterPortfolioRepo;
 
-    @Value("${upload.path}")
-    private String uploadPath;
+    private String uploadPath = System.getProperty("user.dir") + "/upload";
     @GetMapping
     public String getPortfolio(@AuthenticationPrincipal User user, Model model)
     {

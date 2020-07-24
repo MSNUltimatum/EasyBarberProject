@@ -35,8 +35,7 @@ public class PersonalAreaController {
     @Autowired
     MasterPortfolioRepo masterPortfolioRepo;
 
-    @Value("${upload.path}")
-    private String uploadPath;
+    private String uploadPath = System.getProperty("user.dir") + "/upload";
 
     @GetMapping
     public String profile(@AuthenticationPrincipal User user, Model model)

@@ -35,8 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     Securityhandler securityhandler;
 
-    @Value("${upload.path}")
-    private String uploadPath;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
