@@ -70,8 +70,9 @@ public class PersonalAreaController {
 
             String uuidFile = UUID.randomUUID().toString();
             String resultFilename = uuidFile + "." + file.getOriginalFilename();
-
-            file.transferTo(new File(uploadPath + "/" + resultFilename));
+            if(!file.isEmpty()) {
+                file.transferTo(new File(uploadPath + "/" + resultFilename));
+            }
 
             user.setImgFileName(resultFilename);
         }
