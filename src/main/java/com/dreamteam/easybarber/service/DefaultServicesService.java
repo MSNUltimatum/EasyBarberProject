@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 
 @Service
 public class DefaultServicesService
@@ -242,5 +243,22 @@ public class DefaultServicesService
                 baseServicesRepo.save(s);
             }
         }
+        File theDir = new File("uploads");
+
+// if the directory does not exist, create it
+        if (!theDir.exists()) {
+            boolean result = false;
+
+            try{
+                theDir.mkdir();
+                result = true;
+            }
+            catch(SecurityException se){
+            }
+            if(result) {
+                System.out.println("DIR created");
+            }
+        }
+
     }
 }
