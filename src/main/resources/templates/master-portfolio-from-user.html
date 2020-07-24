@@ -164,7 +164,7 @@
 				</div>
 				<!-- Social -->
               <ul class="ftco-footer-social d-flex justify-content-center" style="padding-left: 0; ">
-                <li class="ftco-animate" th:if="${master.getInstagram()}"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate" th:if="${master.getInstagram()}"><a th:href="${user.getInstagram()}"><span class="icon-instagram"></span></a></li>
               </ul>
 			</div>
 			<!-- Main -->
@@ -190,19 +190,12 @@
 				<div class="education">
 					<h3>Galary</h3>
 					<div class="container">
-					<div class="row justify-content-center mb-5 pb-3">
-					  <div class="col-md-7 heading-section ftco-animate text-center">
-					  </div>
-					</div>
 					<div class="row">
-						<div class="col-md-4 d-flex ftco-animate" th:each="photo : ${portfolioPhotos}">
-							<div class="blog-entry align-self-stretch">
-								<a class="block-20" th:style="'width:400px; background-image: url(' + '/img/' + ${photo.getPhotoUrl()} + ');'">
-								</a>
-								<div class="text py-4 d-block">
-									<p>[[${photo.getDescription()}]]
-									</p>
-								</div>
+						<div class="col-md-4" th:each="photo : ${portfolioPhotos}">
+							<a class="block-20" th:style="'background-image: url(' + '/img/' + ${photo.getPhotoUrl()} + ');'">
+							</a>
+							<div class="text py-4 d-block">
+								<p>[[${photo.getDescription()}]]</p>
 							</div>
 						</div>
 					<div class="col-md-1">
