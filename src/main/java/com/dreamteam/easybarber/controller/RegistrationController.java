@@ -73,7 +73,7 @@ public class RegistrationController {
         Arrays.sort(citys);
         model.addAttribute("citys", citys);
         model.addAttribute("sizeCitys", DefaultServicesService.citys.length);
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/registration")
