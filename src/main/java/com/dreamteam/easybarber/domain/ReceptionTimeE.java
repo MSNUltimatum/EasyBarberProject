@@ -1,9 +1,7 @@
 package com.dreamteam.easybarber.domain;
 
-import lombok.Data;
-
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 
 @Entity
 public class ReceptionTimeE {

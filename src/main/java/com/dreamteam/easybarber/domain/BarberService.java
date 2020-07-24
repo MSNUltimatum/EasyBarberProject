@@ -1,7 +1,5 @@
 package com.dreamteam.easybarber.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 // класс услуги
