@@ -111,9 +111,10 @@ public class RegistrationController {
             if (!user.getEmail().isEmpty()) {
                 String message = String.format(
                         "Hello, %s! \n" +
-                                "Welcome to Easy barber. Please, visit next link: http://localhost:8080/activate/%s\n" +
+                                "Welcome to Easy barber. Please, visit next link: %s/activate/%s\n" +
                                 "Regards, \"Easy barber\".",
                         user.getUsername(),
+                        path,
                         user.getActivationCode()
                 );
 
