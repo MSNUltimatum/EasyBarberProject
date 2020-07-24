@@ -83,6 +83,8 @@ public class PersonalAreaController {
         }
         if(username != null && !username.equals(""))
             user.setUsername(username);
+        if(instagram != null && !instagram.equals(""))
+            user.setInstagram(instagram);
         userRepo.save(user);
         return "redirect:/personalArea";
     }
